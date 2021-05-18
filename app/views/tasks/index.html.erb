@@ -1,0 +1,19 @@
+<h1>Your tasks</h1>
+<ul>
+  <% @tasks.each do |task| %>
+    <li><%= task.title %></li>
+    <%= link_to task_path(task) do %>
+      <p>see more</p>
+      <%= link_to edit_task_path(task) do %>
+        <li><button class='btn btn-primary'>edit task</button></li>
+        <%= link_to task_path(task), method: :delete do %>
+          <li><button class='btn btn-primary'>delete task</button></li>
+        <% end %>
+      <% end %>
+    <% end %>
+  </ul>
+  <%= link_to new_task_path do %>
+    <i id="icon" class="fas fa-plus-square"></i>
+    <p>add a task</p>
+  <% end %>
+<% end  %>
